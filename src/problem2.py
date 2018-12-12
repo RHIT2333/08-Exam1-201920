@@ -3,8 +3,8 @@ Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Hanrui Chen.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -45,6 +45,63 @@ def test_factor_sum():
     # WRITE YOUR TESTS BELOW HERE:
     ###########################################################################
 
+# Test 1:
+    expected = 11
+    actual = factor_sum(28)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+# Test 2:
+    expected = 4
+    actual = factor_sum(25)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+# Test 3:
+    expected = 6
+    actual = factor_sum(23)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+# Test 4:
+    expected = 6
+    actual = factor_sum(26)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+# Test 5:
+    expected = 4
+    actual = factor_sum(16)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+def sum_of_digits(number):
+    """
+    What comes in:  An integer.
+    What goes out:  Returns the sum of the digits in the given integer.
+    Side effects:   None.
+    Example:
+      If the integer is 83135,
+      this function returns (8 + 3 + 1 + 3 + 5), which is 20.
+    """
+    # -------------------------------------------------------------------------
+    # Students:
+    #   Do NOT touch the above  sum_of_digits function - it has no _TODO_.
+    #   Do NOT copy code from this function.
+    #
+    # Instead, ** CALL ** this function as needed in the problems below.
+    # -------------------------------------------------------------------------
+    if number < 0:
+        number = -number
+
+    digit_sum = 0
+    while True:
+        if number == 0:
+            break
+        digit_sum = digit_sum + (number % 10)
+        number = number // 10
+
+    return digit_sum
 
 def factor_sum(n):
     """
@@ -70,6 +127,13 @@ def factor_sum(n):
 
        *** ASK FOR AN EXPLANATION IF YOU DO NOT UNDERSTAND THE ABOVE. ***
     """
+
+    sum_factor = 0
+    for k in range(n + 1):
+        if n % (k + 1) == 0:
+            sum_factor = sum_factor + k + 1
+
+    return sum_of_digits(sum_factor)
     ###########################################################################
     #  This function is PURPOSELY implemented INCORRECTLY (it just returns 0).
     #  DO NOT IMPLEMENT  factor_sum.  Just leave it as it is (returning 0).
